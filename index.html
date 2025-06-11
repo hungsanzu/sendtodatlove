@@ -234,18 +234,19 @@
 
     const audioElement = document.getElementById('audio');
     const lyricsElement = document.getElementById('lyrics');
-    const lyricsArray = [
-      { time: 0, text: "Ai từng ngày đêm dài trôi" },
-      { time: 3, text: "Anh đây vẫn mong nhớ" },
-      { time: 5.8, text: "Luôn suy tư và trăn trở" },
-      { time: 10, text: "Tại vì sao anh vẫn chìm trong giấc mơ này?" },
-      { time: 14.3, text: "Một cơn mơ về ai mà anh vẫn không thể" },
-      { time: 18.8, text: "Không thể nào mà có quên" },
-      { time: 20.6, text: "Lạc vào cơn u mê vẫn nhớ bóng hình em" },
-      { time: 23.3, text: "Anh thấy nhớ em" },
-      { time: 25, text: "Có thấy nhớ anh không từ khi lần đầu?" },
-      { time: 27.5, text: "Chẳng thể nói nên câu dù viết dài dòng lắm" },
-    ];
+const lyricsArray = [
+  { time: 0.5, text: "Ai từng ngày đêm dài trôi" },
+  { time: 3.2, text: "Anh đây vẫn mong nhớ" },
+  { time: 6.1, text: "Luôn suy tư và trăn trở" },
+  { time: 9.3, text: "Tại vì sao anh vẫn chìm trong giấc mơ này?" },
+  { time: 12.7, text: "Một cơn mơ về ai mà anh vẫn không thể" },
+  { time: 16.3, text: "Không thể nào mà có quên" },
+  { time: 18.6, text: "Lạc vào cơn u mê vẫn nhớ bóng hình em" },
+  { time: 21.0, text: "Anh thấy nhớ em" },
+  { time: 22.7, text: "Có thấy nhớ anh không từ khi lần đầu?" },
+  { time: 24.3, text: "Chẳng thể nói nên câu dù viết dài dòng lắm" }
+];
+
 
     let currentLyricIndex = 0;
     function displayLyric() {
