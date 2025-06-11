@@ -214,32 +214,21 @@
       color: #ccc;
     }
 
+    /* Popup Modal */
     .modal {
       position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 100vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: rgba(0,0,0,0.5);
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      font-size: 1.2rem;
+      font-weight: bold;
       z-index: 9999;
-    }
-
-    .modal-content {
-      background: #fff;
-      padding: 30px 40px;
-      border-radius: 20px;
-      font-size: 1.5rem;
-      color: #ff5e7e;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-      animation: popupFade 0.6s ease;
-    }
-
-    @keyframes popupFade {
-      from { transform: scale(0.8); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+      text-align: center;
+      transition: opacity 0.5s ease;
     }
   </style>
 </head>
@@ -249,19 +238,14 @@
   <div class="content">
     <h1>To My Love</h1>
     <img src="https://i.imgur.com/rUdwcKa.jpeg" alt="Your Love">
-    <p>Ha Anh Thu </p>
+    <p>Ha Anh Thu</p>
     <div class="lyrics" id="lyrics">Loading lyrics...</div>
   </div>
 
   <button id="themeToggle" title="Chuyển chế độ sáng/tối">🌓</button>
   <button id="startBtn">Bắt đầu 🎵</button>
 
-  <!-- Popup hiển thị khi vào trang -->
-  <div id="welcomeModal" class="modal">
-    <div class="modal-content">
-      <p>2025 ©️ From GiaHung ❤️</p>
-    </div>
-  </div>
+  <div id="welcomeModal" class="modal">2025 ©️ From GiaHung ❤️</div>
 
   <audio id="audio">
     <source src="./ny.mp3" type="audio/mp3">
@@ -305,6 +289,7 @@
         ctx.fill();
       }
     }
+
     setInterval(drawStars, 100);
 
     const audioElement = document.getElementById('audio');
@@ -346,22 +331,16 @@
     });
 
     document.getElementById('startBtn').addEventListener('click', () => {
-      audioElement.play()
-        .then(() => {
-          currentLyricIndex = 0;
-          displayLyric();
-        })
-        .catch(err => {
-          alert("Không thể phát nhạc tự động. Vui lòng thử lại.");
-          console.error("Play error:", err);
-        });
+      audioElement.play();
     });
 
     window.addEventListener("load", () => {
       const modal = document.getElementById("welcomeModal");
       setTimeout(() => {
-        modal.style.display = "none";
-      }, 3500);
+        modal.style.opacity = "0";
+        modal.style.pointerEvents = "none";
+        setTimeout(() => modal.remove(), 500);
+      }, 1500);
     });
   </script>
 </body>
